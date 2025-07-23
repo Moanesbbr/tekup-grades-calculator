@@ -9,164 +9,352 @@
     <link rel="icon" href="https://tek-up.de/wp-content/uploads/2022/05/cropped-favicon1-192x192.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="https://tek-up.de/wp-content/uploads/2022/05/cropped-favicon1-180x180.png" />
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-            min-height: 100vh;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
+            padding: 20px;
+            line-height: 1.6;
         }
 
         .container {
             background: white;
-            padding: 40px 36px 32px 36px;
-            border-radius: 18px;
-            box-shadow: 0 8px 32px rgba(0, 74, 153, 0.10), 0 1.5px 6px rgba(0, 0, 0, 0.04);
-            max-width: 520px;
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow:
+                0 10px 30px rgba(0, 74, 153, 0.1),
+                0 4px 20px rgba(0, 74, 153, 0.05);
+            max-width: 600px;
+            width: 100%;
             text-align: center;
             position: relative;
-            margin-top: 5vh;
-        }
-
-        h1 {
-            color: #004a99;
-            font-size: 2.1em;
-            margin-bottom: 0.2em;
-        }
-
-        .subtitle {
-            font-size: 1.1em;
-            color: #0077cc;
-            margin-bottom: 1.2em;
-        }
-
-        p {
-            font-size: 15px;
-            color: #444;
-        }
-
-        .bookmark-btn {
-            display: inline-block;
-            margin-top: 24px;
-            padding: 14px 26px;
-            font-size: 17px;
-            background: linear-gradient(90deg, #0077cc 60%, #005fa3 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(0, 74, 153, 0.08);
-            transition: background 0.3s, transform 0.2s;
-            word-break: break-word;
-        }
-
-        .bookmark-btn:hover {
-            background: linear-gradient(90deg, #005fa3 60%, #0077cc 100%);
-            transform: translateY(-2px) scale(1.03);
-        }
-
-        .instructions {
-            background: #f0f8ff;
-            border-left: 4px solid #0077cc;
-            padding: 16px 18px;
-            border-radius: 7px;
-            margin: 22px 0 18px 0;
-            text-align: left;
-            font-size: 1em;
-        }
-
-        .preview {
-            margin-top: 18px;
-            background: #f8fafc;
-            border-radius: 8px;
-            padding: 18px 12px 10px 12px;
-            box-shadow: 0 1px 4px rgba(0, 74, 153, 0.04);
-        }
-
-        .preview-title {
-            color: #0077cc;
-            font-size: 1.1em;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .footer {
-            margin-top: 30px;
-            font-size: 0.95em;
-            color: #888;
+            border: 1px solid rgba(0, 74, 153, 0.1);
         }
 
         .lang-toggle {
             position: absolute;
-            top: 18px;
-            right: 18px;
-            background: #f0f8ff;
-            border: 1px solid #0077cc;
-            color: #0077cc;
-            border-radius: 6px;
-            padding: 6px 14px;
-            font-size: 1em;
-            cursor: pointer;
+            top: 20px;
+            right: 20px;
+            background: #f0f7ff;
+            border: 2px solid #004a99;
+            color: #004a99;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 14px;
             font-weight: 600;
-            transition: background 0.2s, color 0.2s;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .lang-toggle:hover {
-            background: #0077cc;
-            color: #fff;
+            background: #004a99;
+            color: white;
+        }
+
+        .header {
+            margin-bottom: 40px;
         }
 
         .logo {
-            width: 64px;
-            height: 64px;
-            margin-bottom: 10px;
+            width: 72px;
+            height: 72px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 74, 153, 0.15);
+        }
+
+        h1 {
+            color: #004a99;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #0066cc;
+            margin-bottom: 0;
+            font-weight: 400;
         }
 
         .marks-link {
-            display: block;
-            margin: 10px auto 18px auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 30px 0;
             color: #004a99;
-            font-size: 1em;
+            font-size: 1rem;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 24px;
+            border: 2px solid #004a99;
+            border-radius: 10px;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .marks-link:hover {
+            background: #004a99;
+            color: white;
+        }
+
+        .marks-link::after {
+            content: '→';
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .instructions {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
+            border: 1px solid rgba(0, 74, 153, 0.2);
+            border-left: 4px solid #004a99;
+            padding: 28px;
+            border-radius: 12px;
+            margin: 32px 0;
+            text-align: left;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .instructions strong {
+            color: #004a99;
+            font-weight: 700;
+            font-size: 1.15rem;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .instructions ol {
+            margin: 0 0 0 20px;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .instructions b {
+            color: #004a99;
+            font-weight: 600;
+        }
+
+        .bookmark-btn {
+            display: inline-block;
+            margin: 32px 0;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, #004a99 0%, #0066cc 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 74, 153, 0.25);
+        }
+
+        .bookmark-btn:hover {
+            background: linear-gradient(135deg, #003d80 0%, #0052a3 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 74, 153, 0.35);
+        }
+
+        .bookmark-btn:active {
+            transform: translateY(0);
+        }
+
+        .preview {
+            margin-top: 32px;
+            background: #fafcff;
+            border: 1px solid rgba(0, 74, 153, 0.15);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .preview-title {
+            color: #004a99;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .preview ul {
+            text-align: left;
+            margin: 0 0 0 20px;
+            color: #555;
+        }
+
+        .preview li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .preview li b {
+            color: #004a99;
+            font-weight: 600;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: #004a99;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #0066cc;
             text-decoration: underline;
-            font-weight: 500;
+        }
+
+        /* Accent elements */
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #004a99, #0066cc);
+            border-radius: 2px;
+            margin: 24px auto;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 32px 24px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .lang-toggle {
+                top: 16px;
+                right: 16px;
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+
+            .instructions {
+                padding: 24px;
+            }
+
+            .bookmark-btn {
+                padding: 14px 28px;
+                font-size: 1rem;
+            }
+
+            .preview {
+                padding: 24px;
+            }
+        }
+
+        /* Subtle animations */
+        .logo {
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .container {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Success/info colors for variety */
+        .success-accent {
+            color: #28a745;
+        }
+
+        .info-accent {
+            color: #17a2b8;
         }
     </style>
 </head>
 
 <body>
-
     <div class="container">
         <button class="lang-toggle" id="langToggle">FR</button>
-        <img src="assets/logotekup.png" alt="Tekup Logo" class="logo" />
-        <h1 id="title">🎓 Tekup Grades Calculator</h1>
-        <div class="subtitle" id="subtitle">Your instant GPA & module analyzer for Tekup University</div>
-        <a class="marks-link" id="marksLink" href="https://edx.tek-up.de/portal/marks.faces?_cid=2c1" target="_blank">Go
-            to Tekup Marks Page</a>
+
+        <div class="header">
+            <img src="assets/logotekup.png" alt="Tekup Logo" class="logo" />
+            <h1 id="title">🎓 Tekup Grades Calculator</h1>
+            <div class="subtitle" id="subtitle">Your instant GPA & module analyzer for Tekup University</div>
+        </div>
+
+        <a class="marks-link" id="marksLink" href="https://edx.tek-up.de/portal/marks.faces?_cid=2c1" target="_blank">
+            <span id="marksLinkText">Go to Tekup Marks Page</span>
+        </a>
+
+        <div class="divider"></div>
+
         <div class="instructions" id="instructions">
             <strong>How to use:</strong>
-            <ol style="margin: 0 0 0 1.2em; padding: 0;">
+            <ol>
                 <li>Drag the <b>Add Grades Calculator</b> button below to your bookmarks bar.</li>
                 <li>Go to your <b>Tekup University grades page</b> (where you see your modules/grades).</li>
                 <li>Click the bookmarklet in your bar. A beautiful modal will show your averages, pass/fail status, and
                     more!</li>
             </ol>
         </div>
-        <a id="bookmarklet" class="bookmark-btn" href="#">Add Grades Calculator</a>
+
+        <a id="bookmarklet" class="bookmark-btn" href="#">
+            <span id="bookmarkletText">📊 Add Grades Calculator</span>
+        </a>
+
+        <div class="divider"></div>
+
         <div class="preview" id="preview">
-            <div class="preview-title" id="previewTitle">🔍 What does this do?</div>
-            <ul style="text-align:left; margin:0 0 0 1.2em;" id="previewList">
+            <div class="preview-title" id="previewTitle">✨ What does this do?</div>
+            <ul id="previewList">
                 <li>Calculates <b>module</b> and <b>general averages</b> for the selected year</li>
                 <li>Shows <b>pass/fail</b> status for each subject and module</li>
                 <li>Highlights modules/subjects to redo (if any)</li>
                 <li>Works <b>instantly</b> on your grades page, no data leaves your browser</li>
             </ul>
         </div>
+
         <div class="footer" id="footer">
-            Made with ❤️ for Tekup students. <br> No data is sent anywhere. Open source & safe.<br>
-            <a href="https://github.com/Moanesbbr/tekup-grades-calculator" target="_blank"
-                style="color:#0077cc;text-decoration:underline;font-weight:500;">View source on GitHub</a>
+            Made with ❤️ for Tekup students<br>
+            No data is sent anywhere. Open source & safe<br>
+            <a href="https://github.com/Moanesbbr/tekup-grades-calculator" target="_blank">View source on GitHub</a>
         </div>
     </div>
 
@@ -176,44 +364,48 @@
             en: {
                 title: '🎓 Tekup Grades Calculator',
                 subtitle: 'Your instant GPA & module analyzer for Tekup University',
-                marksLink: 'Go to Tekup Marks Page',
-                instructions: `<strong>How to use:</strong><ol style=\"margin: 0 0 0 1.2em; padding: 0;\"><li>Drag the <b>Add Grades Calculator</b> button below to your bookmarks bar.</li><li>Go to your <b>Tekup University grades page</b> (where you see your modules/grades).</li><li>Click the bookmarklet in your bar. A beautiful modal will show your averages, pass/fail status, and more!</li></ol>`,
-                bookmarklet: 'Add Grades Calculator',
-                previewTitle: '🔍 What does this do?',
+                marksLinkText: 'Go to Tekup Marks Page',
+                instructions: `<strong>How to use:</strong><ol><li>Drag the <b>Add Grades Calculator</b> button below to your bookmarks bar.</li><li>Go to your <b>Tekup University grades page</b> (where you see your modules/grades).</li><li>Click the bookmarklet in your bar. A beautiful modal will show your averages, pass/fail status, and more!</li></ol>`,
+                bookmarkletText: '📊 Add Grades Calculator',
+                previewTitle: '✨ What does this do?',
                 previewList: `<li>Calculates <b>module</b> and <b>general averages</b> for the selected year</li><li>Shows <b>pass/fail</b> status for each subject and module</li><li>Highlights modules/subjects to redo (if any)</li><li>Works <b>instantly</b> on your grades page, no data leaves your browser</li>`,
-                footer: 'Made with ❤️ for Tekup students. <br> No data is sent anywhere. Open source & safe.',
+                footer: 'Made with ❤️ for Tekup students<br>No data is sent anywhere. Open source & safe',
                 langToggle: 'FR',
             },
             fr: {
                 title: '🎓 Calculateur de Moyennes Tekup',
                 subtitle: 'Votre analyseur instantané de GPA & modules pour Tekup',
-                marksLink: 'Aller à la page des notes Tekup',
-                instructions: `<strong>Comment utiliser :</strong><ol style=\"margin: 0 0 0 1.2em; padding: 0;\"><li>Glissez le bouton <b>Ajouter le Calculateur</b> ci-dessous dans votre barre de favoris.</li><li>Allez sur votre <b>page des notes Tekup</b> (où vous voyez vos modules/notes).</li><li>Cliquez sur le favori dans votre barre. Une belle fenêtre affichera vos moyennes, statuts de réussite/échec, et plus !</li></ol>`,
-                bookmarklet: 'Ajouter le Calculateur',
-                previewTitle: '🔍 Que fait ce bouton ?',
-                previewList: `<li>Calcule les <b>moyennes des modules</b> et la <b>moyenne générale</b> pour l’année sélectionnée</li><li>Affiche le statut <b>réussi/échoué</b> pour chaque matière et module</li><li>Met en avant les modules/matières à refaire (si besoin)</li><li>Fonctionne <b>instantanément</b> sur votre page de notes, aucune donnée ne quitte votre navigateur</li>`,
-                footer: 'Fait avec ❤️ pour les étudiants Tekup. <br> Aucune donnée n’est envoyée. Open source & sûr.',
+                marksLinkText: 'Aller à la page des notes Tekup',
+                instructions: `<strong>Comment utiliser :</strong><ol><li>Glissez le bouton <b>Ajouter le Calculateur</b> ci-dessous dans votre barre de favoris.</li><li>Allez sur votre <b>page des notes Tekup</b> (où vous voyez vos modules/notes).</li><li>Cliquez sur le favori dans votre barre. Une belle fenêtre affichera vos moyennes, statuts de réussite/échec, et plus !</li></ol>`,
+                bookmarkletText: '📊 Ajouter le Calculateur',
+                previewTitle: '✨ Que fait ce bouton ?',
+                previewList: `<li>Calcule les <b>moyennes des modules</b> et la <b>moyenne générale</b> pour l'année sélectionnée</li><li>Affiche le statut <b>réussi/échoué</b> pour chaque matière et module</li><li>Met en avant les modules/matières à refaire (si besoin)</li><li>Fonctionne <b>instantanément</b> sur votre page de notes, aucune donnée ne quitte votre navigateur</li>`,
+                footer: 'Fait avec ❤️ pour les étudiants Tekup<br>Aucune donnée n\'est envoyée. Open source & sûr',
                 langToggle: 'EN',
             }
         };
+
         let currentLang = 'en';
+
         function setLang(lang) {
             currentLang = lang;
             document.getElementById('title').textContent = translations[lang].title;
             document.getElementById('subtitle').textContent = translations[lang].subtitle;
-            document.getElementById('marksLink').textContent = translations[lang].marksLink;
-            document.getElementById('marksLink').href = 'https://edx.tek-up.de/portal/marks.faces?_cid=2c1';
+            document.getElementById('marksLinkText').textContent = translations[lang].marksLinkText;
             document.getElementById('instructions').innerHTML = translations[lang].instructions;
-            document.getElementById('bookmarklet').textContent = translations[lang].bookmarklet;
+            document.getElementById('bookmarkletText').textContent = translations[lang].bookmarkletText;
             document.getElementById('previewTitle').textContent = translations[lang].previewTitle;
             document.getElementById('previewList').innerHTML = translations[lang].previewList;
-            document.getElementById('footer').innerHTML = translations[lang].footer;
+            document.getElementById('footer').innerHTML = translations[lang].footer + '<br><a href="https://github.com/Moanesbbr/tekup-grades-calculator" target="_blank">View source on GitHub</a>';
             document.getElementById('langToggle').textContent = translations[lang].langToggle;
         }
+
         document.getElementById('langToggle').addEventListener('click', function () {
             setLang(currentLang === 'en' ? 'fr' : 'en');
         });
+
         setLang('en');
+
         fetch("assets/main.js")
             .then(resp => resp.text())
             .then(js => {
@@ -221,10 +413,10 @@
                 document.getElementById('bookmarklet').href = bookmarkletCode;
             })
             .catch(err => {
-                document.getElementById('bookmarklet').textContent = "Error loading JS file";
+                document.getElementById('bookmarkletText').textContent = "Error loading JS file";
+                console.error('Error loading bookmarklet:', err);
             });
     </script>
-
 </body>
 
 </html>
