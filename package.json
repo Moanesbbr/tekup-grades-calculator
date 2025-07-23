@@ -1,15 +1,16 @@
 {
   "name": "calcul_moy_tekup",
   "version": "1.0.0",
-  "description": "A simple, privacy-friendly calculator for Tekup University students to instantly calculate and visualize their module and general averages directly on the official grades page.",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^4.18.2"
   }
 }
