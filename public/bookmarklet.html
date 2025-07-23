@@ -385,7 +385,11 @@
             }
         };
 
-        let currentLang = 'en';
+        // Detect browser language and set default
+        let currentLang = (() => {
+            const browserLang = navigator.language || navigator.userLanguage;
+            return browserLang.startsWith('fr') ? 'fr' : 'en';
+        })();
 
         function setLang(lang) {
             currentLang = lang;
@@ -404,7 +408,8 @@
             setLang(currentLang === 'en' ? 'fr' : 'en');
         });
 
-        setLang('en');
+        // Initialize with detected language
+        setLang(currentLang);
 
         fetch("assets/main.js")
             .then(resp => resp.text())
