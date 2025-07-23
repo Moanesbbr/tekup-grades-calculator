@@ -1,5 +1,7 @@
 # Tekup Grades Calculator
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-tekup--grades--calculator.vercel.app-blue?style=flat-square)](https://tekup-grades-calculator.vercel.app/)
+
 A simple, privacy-friendly calculator for Tekup University students to instantly calculate and visualize their module and general averages directly on the official grades page.
 
 ## Description
@@ -15,12 +17,27 @@ A simple, privacy-friendly calculator for Tekup University students to instantly
 - Beautiful, modern modal interface
 - 100% privacy: all calculations are done in your browser
 
-## How to Use
+## How to Use Locally (Node.js)
 
-1. **Open `bookmarklet.html` in your browser.**
-2. **Drag the "Add Grades Calculator" button** to your bookmarks bar.
-3. **Go to the [Tekup marks page](https://edx.tek-up.de/portal/marks.faces?_cid=2c1)** and log in.
-4. **Click the calculator** in your bookmarks bar. A modal will appear with your calculated averages and results.
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+2. **Start the server:**
+   ```bash
+   node server.js
+   ```
+3. **Open your browser and go to:**
+   [http://localhost:3000](http://localhost:3000)
+4. **Drag the "Add Grades Calculator" button** to your bookmarks bar.
+5. **Go to the [Tekup marks page](https://edx.tek-up.de/portal/marks.faces?_cid=2c1)** and log in.
+6. **Click the calculator** in your bookmarks bar. A modal will appear with your calculated averages and results.
+
+## Deployment
+
+- You can deploy this calculator to any Node.js hosting platform (like Heroku, Vercel, or your own server).
+- The main page will be available at the root URL (`/`).
+- **Try it online:** [https://tekup-grades-calculator.vercel.app/](https://tekup-grades-calculator.vercel.app/)
 
 ## Repository Name
 
@@ -28,7 +45,7 @@ A simple, privacy-friendly calculator for Tekup University students to instantly
 
 ## Screenshots
 
-![Preview](assets/logotekup.png)
+![Preview](public/assets/logotekup.png)
 
 ## License
 
