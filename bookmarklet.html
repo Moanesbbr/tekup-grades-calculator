@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekup Grades Bookmarklet</title>
+    <link rel="icon" href="https://tek-up.de/wp-content/uploads/2022/05/cropped-favicon1-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://tek-up.de/wp-content/uploads/2022/05/cropped-favicon1-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://tek-up.de/wp-content/uploads/2022/05/cropped-favicon1-180x180.png" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .container {
+            background: white;
+            padding: 40px 36px 32px 36px;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0, 74, 153, 0.10), 0 1.5px 6px rgba(0, 0, 0, 0.04);
+            max-width: 520px;
+            text-align: center;
+            position: relative;
+            margin-top: 5vh;
+        }
+
+        h1 {
+            color: #004a99;
+            font-size: 2.1em;
+            margin-bottom: 0.2em;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #0077cc;
+            margin-bottom: 1.2em;
+        }
+
+        p {
+            font-size: 15px;
+            color: #444;
+        }
+
+        .bookmark-btn {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 14px 26px;
+            font-size: 17px;
+            background: linear-gradient(90deg, #0077cc 60%, #005fa3 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 74, 153, 0.08);
+            transition: background 0.3s, transform 0.2s;
+            word-break: break-word;
+        }
+
+        .bookmark-btn:hover {
+            background: linear-gradient(90deg, #005fa3 60%, #0077cc 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+
+        .instructions {
+            background: #f0f8ff;
+            border-left: 4px solid #0077cc;
+            padding: 16px 18px;
+            border-radius: 7px;
+            margin: 22px 0 18px 0;
+            text-align: left;
+            font-size: 1em;
+        }
+
+        .preview {
+            margin-top: 18px;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 18px 12px 10px 12px;
+            box-shadow: 0 1px 4px rgba(0, 74, 153, 0.04);
+        }
+
+        .preview-title {
+            color: #0077cc;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #888;
+        }
+
+        .lang-toggle {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: #f0f8ff;
+            border: 1px solid #0077cc;
+            color: #0077cc;
+            border-radius: 6px;
+            padding: 6px 14px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .lang-toggle:hover {
+            background: #0077cc;
+            color: #fff;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 10px;
+        }
+
+        .marks-link {
+            display: block;
+            margin: 10px auto 18px auto;
+            color: #004a99;
+            font-size: 1em;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <button class="lang-toggle" id="langToggle">FR</button>
+        <img src="assets/logotekup.png" alt="Tekup Logo" class="logo" />
+        <h1 id="title">🎓 Tekup Grades Calculator</h1>
+        <div class="subtitle" id="subtitle">Your instant GPA & module analyzer for Tekup University</div>
+        <a class="marks-link" id="marksLink" href="https://edx.tek-up.de/portal/marks.faces?_cid=2c1" target="_blank">Go
+            to Tekup Marks Page</a>
+        <div class="instructions" id="instructions">
+            <strong>How to use:</strong>
+            <ol style="margin: 0 0 0 1.2em; padding: 0;">
+                <li>Drag the <b>Add Grades Calculator</b> button below to your bookmarks bar.</li>
+                <li>Go to your <b>Tekup University grades page</b> (where you see your modules/grades).</li>
+                <li>Click the bookmarklet in your bar. A beautiful modal will show your averages, pass/fail status, and
+                    more!</li>
+            </ol>
+        </div>
+        <a id="bookmarklet" class="bookmark-btn" href="#">Add Grades Calculator</a>
+        <div class="preview" id="preview">
+            <div class="preview-title" id="previewTitle">🔍 What does this do?</div>
+            <ul style="text-align:left; margin:0 0 0 1.2em;" id="previewList">
+                <li>Calculates <b>module</b> and <b>general averages</b> for the selected year</li>
+                <li>Shows <b>pass/fail</b> status for each subject and module</li>
+                <li>Highlights modules/subjects to redo (if any)</li>
+                <li>Works <b>instantly</b> on your grades page, no data leaves your browser</li>
+            </ul>
+        </div>
+        <div class="footer" id="footer">
+            Made with ❤️ for Tekup students. <br> No data is sent anywhere. Open source & safe.
+        </div>
+    </div>
+
+    <script>
+        // Translation dictionary
+        const translations = {
+            en: {
+                title: '🎓 Tekup Grades Calculator',
+                subtitle: 'Your instant GPA & module analyzer for Tekup University',
+                marksLink: 'Go to Tekup Marks Page',
+                instructions: `<strong>How to use:</strong><ol style=\"margin: 0 0 0 1.2em; padding: 0;\"><li>Drag the <b>Add Grades Calculator</b> button below to your bookmarks bar.</li><li>Go to your <b>Tekup University grades page</b> (where you see your modules/grades).</li><li>Click the bookmarklet in your bar. A beautiful modal will show your averages, pass/fail status, and more!</li></ol>`,
+                bookmarklet: 'Add Grades Calculator',
+                previewTitle: '🔍 What does this do?',
+                previewList: `<li>Calculates <b>module</b> and <b>general averages</b> for the selected year</li><li>Shows <b>pass/fail</b> status for each subject and module</li><li>Highlights modules/subjects to redo (if any)</li><li>Works <b>instantly</b> on your grades page, no data leaves your browser</li>`,
+                footer: 'Made with ❤️ for Tekup students. <br> No data is sent anywhere. Open source & safe.',
+                langToggle: 'FR',
+            },
+            fr: {
+                title: '🎓 Calculateur de Moyennes Tekup',
+                subtitle: 'Votre analyseur instantané de GPA & modules pour Tekup',
+                marksLink: 'Aller à la page des notes Tekup',
+                instructions: `<strong>Comment utiliser :</strong><ol style=\"margin: 0 0 0 1.2em; padding: 0;\"><li>Glissez le bouton <b>Ajouter le Calculateur</b> ci-dessous dans votre barre de favoris.</li><li>Allez sur votre <b>page des notes Tekup</b> (où vous voyez vos modules/notes).</li><li>Cliquez sur le favori dans votre barre. Une belle fenêtre affichera vos moyennes, statuts de réussite/échec, et plus !</li></ol>`,
+                bookmarklet: 'Ajouter le Calculateur',
+                previewTitle: '🔍 Que fait ce bouton ?',
+                previewList: `<li>Calcule les <b>moyennes des modules</b> et la <b>moyenne générale</b> pour l’année sélectionnée</li><li>Affiche le statut <b>réussi/échoué</b> pour chaque matière et module</li><li>Met en avant les modules/matières à refaire (si besoin)</li><li>Fonctionne <b>instantanément</b> sur votre page de notes, aucune donnée ne quitte votre navigateur</li>`,
+                footer: 'Fait avec ❤️ pour les étudiants Tekup. <br> Aucune donnée n’est envoyée. Open source & sûr.',
+                langToggle: 'EN',
+            }
+        };
+        let currentLang = 'en';
+        function setLang(lang) {
+            currentLang = lang;
+            document.getElementById('title').textContent = translations[lang].title;
+            document.getElementById('subtitle').textContent = translations[lang].subtitle;
+            document.getElementById('marksLink').textContent = translations[lang].marksLink;
+            document.getElementById('marksLink').href = 'https://edx.tek-up.de/portal/marks.faces?_cid=2c1';
+            document.getElementById('instructions').innerHTML = translations[lang].instructions;
+            document.getElementById('bookmarklet').textContent = translations[lang].bookmarklet;
+            document.getElementById('previewTitle').textContent = translations[lang].previewTitle;
+            document.getElementById('previewList').innerHTML = translations[lang].previewList;
+            document.getElementById('footer').innerHTML = translations[lang].footer;
+            document.getElementById('langToggle').textContent = translations[lang].langToggle;
+        }
+        document.getElementById('langToggle').addEventListener('click', function () {
+            setLang(currentLang === 'en' ? 'fr' : 'en');
+        });
+        setLang('en');
+        fetch("assets/main.js")
+            .then(resp => resp.text())
+            .then(js => {
+                const bookmarkletCode = `javascript:(function(){${js}})();`;
+                document.getElementById('bookmarklet').href = bookmarkletCode;
+            })
+            .catch(err => {
+                document.getElementById('bookmarklet').textContent = "Error loading JS file";
+            });
+    </script>
+
+</body>
+
+</html>
